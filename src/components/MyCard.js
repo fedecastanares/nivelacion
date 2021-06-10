@@ -21,6 +21,7 @@ import {Link} from 'react-router-dom'
 import UseFeatureMediaImage from "../hook/useFeatureMediaImage"
 
 import { red } from "@material-ui/core/colors";
+import useFavorites from '../hook/useFavorites'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,6 +58,7 @@ function MyCard({ notice }) {
   const classes = useStyles();
 
   const [image, setImage] = useState(false);
+  const {favorites, setFavorites, isFavorite} = useFavorites();
 
   useEffect(() => {
     const getImage = async () => {
@@ -68,6 +70,9 @@ function MyCard({ notice }) {
   },[]);
 
 
+  if (isFavorite(notice.id)) {
+    //console.log(notice.title.rendered);
+  }
 
 
   return (
@@ -92,7 +97,7 @@ function MyCard({ notice }) {
             <div className={classes.noticeText} dangerouslySetInnerHTML={{__html: notice.excerpt.rendered}}></div>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
+          <IconButton aria-label="add to favorites" color={isFavorite(notice.id) ? 'primary' : 'inherit'} onClick={() => setFavorites(notice.id)}>
             <FavoriteIcon />
           </IconButton>
           <IconButton aria-label="share">

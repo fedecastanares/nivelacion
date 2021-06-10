@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import TeledoceService from "../service/TeledoceService";
 import { CategoryContext } from './categoryContext';
+
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
@@ -29,6 +30,8 @@ const DataProvider = ({ children }) => {
     };
     getNews();
   }, [searchTextNews, selectedCategories]);
+
+
 
   return (
     <DataContext.Provider

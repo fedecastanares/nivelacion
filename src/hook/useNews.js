@@ -6,10 +6,6 @@ const useNews = () => {
 
     const {news, setNews} = useContext(DataContext);
 
-    const setterNews = (user) => {
-        
-    }
-
     return {news, setNews};
 }
  
