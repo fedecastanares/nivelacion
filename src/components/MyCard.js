@@ -58,7 +58,8 @@ function MyCard({ notice }) {
   const classes = useStyles();
 
   const [image, setImage] = useState(false);
-  const {favorites, setFavorites, isFavorite} = useFavorites();
+  const { setFavorites, isFavorite} = useFavorites();
+  console.log(setFavorites)
 
   useEffect(() => {
     const getImage = async () => {
@@ -69,10 +70,6 @@ function MyCard({ notice }) {
   // eslint-disable-next-line
   },[]);
 
-
-  if (isFavorite(notice.id)) {
-    //console.log(notice.title.rendered);
-  }
 
 
   return (

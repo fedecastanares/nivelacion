@@ -11,16 +11,30 @@ const useFavorites = () => {
 
 
     const setFavoritesInContextAndLocalStorage = newId => {
+        if (isFavorite(newId)){
+            removeFavoriteById(newId);
+        } else {
+            addFavoriteById(newId);
+        }
+    }
 
-        // is favorite
-        // true 
-        // remove
-        // false
-        // add
+    const removeFavoriteById = newId => {
+        const newArray = favorites.filter(item => item !== newId);
+        setFavorites(newArray);
+        updateLocalStorage();
+    }
 
+    const addFavoriteById = newId => {
+        setFavorites([...favorites, newId]);
+        updateLocalStorage();
+    }
 
-        // localStorage.setItem('favorites', JSON.stringify([535225, 535255]))
+    const updateLocalStorage = () => {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
 
+    const saludo = () => {
+        console.log("hola");
     }
 
     return ( 
