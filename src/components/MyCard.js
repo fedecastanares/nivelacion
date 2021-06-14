@@ -59,7 +59,6 @@ function MyCard({ notice }) {
 
   const [image, setImage] = useState(false);
   const { setFavorites, isFavorite} = useFavorites();
-  console.log(setFavorites)
 
   useEffect(() => {
     const getImage = async () => {

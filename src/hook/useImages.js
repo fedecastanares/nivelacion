@@ -8,10 +8,9 @@ const UseImages = () => {
     const { images, setImages } = useContext(ImageContext);
 
     const getImageById = (id) => {
-        // buscamos si existe en images (context)
         let imageObj = images.find(image => image.id === id);
         if (!imageObj) {
-            imageObj = getImageService();
+            imageObj = getImageService(id);
         }
         return imageObj;
     }
