@@ -12,8 +12,9 @@ const News = () => {
     const {news} = useNews();
 
     const RenderNews = () => (
-      news.map((notice) => (
-        <Grid item key={notice.id}>
+      news.map((notice) => 
+      React.Children.toArray(
+        <Grid item>
           <Card notice={notice} />
         </Grid>
       ))
