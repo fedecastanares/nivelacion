@@ -1,9 +1,10 @@
 import React, {useContext} from 'react';
-import { Grid , CircularProgress} from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
 import Card from '../components/MyCard'
 import { DataContext } from "../context/dataContext"
 import useNews from '../hook/useNews'
+import NewSkeleton from './NewSkeleton';
 
 const News = () => {
 
@@ -22,7 +23,7 @@ const News = () => {
 
     return ( 
         <>
-        {news.length > 0 && !loading ? (<RenderNews />) : (<CircularProgress style={{marginTop: 100, marginBottom: 300}}/>)}
+        {news.length > 0 && !loading ? (<RenderNews />) : (<NewSkeleton />)}
         </>
      );
 }

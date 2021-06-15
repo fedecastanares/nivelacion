@@ -39,6 +39,7 @@ const Slide = ({ newItem, index }) => {
       setImage(response.source_url);
     };
     getImage();
+  // eslint-disable-next-line
   }, []);
 
   return (

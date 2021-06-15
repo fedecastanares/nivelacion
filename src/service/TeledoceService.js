@@ -23,6 +23,7 @@ export default class TeledoceService {
   }
 
   async getFeatureMediaById(id) {
+    console.log('servicio con imagen')
     const response = await axios.get(
       `https://www.teledoce.com/wp-json/wp/v2/media/${id}`
     );

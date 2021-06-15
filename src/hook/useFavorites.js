@@ -33,10 +33,6 @@ const useFavorites = () => {
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 
-    const saludo = () => {
-        console.log("hola");
-    }
-
     return ( 
         {
             favorites, 

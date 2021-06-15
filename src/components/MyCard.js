@@ -18,7 +18,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import {Link} from 'react-router-dom'
 
-import UseFeatureMediaImage from "../hook/useFeatureMediaImage"
+import UseImages from "../hook/useImages"
 
 import { red } from "@material-ui/core/colors";
 import useFavorites from '../hook/useFavorites'
@@ -57,13 +57,15 @@ const useStyles = makeStyles((theme) => ({
 function MyCard({ notice }) {
   const classes = useStyles();
 
+  const { getImageById } = UseImages();
+
   const [image, setImage] = useState(false);
   const { setFavorites, isFavorite} = useFavorites();
 
   useEffect(() => {
     const getImage = async () => {
-      const response = await UseFeatureMediaImage(notice.featured_media);
-      setImage(response);
+      const image = await getImageById(notice.featured_media);
+      setImage(image);
     }
     getImage();
   // eslint-disable-next-line

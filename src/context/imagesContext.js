@@ -1,6 +1,6 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 
-const ImageContext = createContext();
+export const ImageContext = createContext();
 
 const ImageProvider = ({children}) => {
 
